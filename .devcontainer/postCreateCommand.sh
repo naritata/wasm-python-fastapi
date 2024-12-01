@@ -5,5 +5,10 @@ cp .devcontainer/.bash_aliases ~/.bash_aliases
 ## .devcontainer/.ssh/配下に予めconfigや秘密鍵を配置しておくこと
 cp .devcontainer/.ssh/* ~/.ssh/
 
+curl https://get.wasmer.io -sSfL | sh
+source /home/vscode/.wasmer/wasmer.sh
+wasmer --version
+
 ## python関連パッケージのインストール
 uv sync
+
