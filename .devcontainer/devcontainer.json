@@ -1,0 +1,58 @@
+{
+    "name": "wasm-handson-python",
+    "containerEnv": {
+        "TZ": "Asia/Tokyo"
+    },
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "features": {
+        // uv: pythonのpackage manager
+        "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
+        // ruff: pythonのlinter + formatter
+        "ghcr.io/devcontainers-contrib/features/ruff:1": {},
+        "ghcr.io/devcontainers/features/terraform:1": {},
+        "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // terraform
+                "hashicorp.terraform",
+                // ruff: pythonのlinter + formatter
+                "charliermarsh.ruff",
+                // documentation
+                "njpwerner.autodocstring",
+                // git関連
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                // copilot関連
+                "github.copilot",
+                "github.copilot-chat",
+                "github.copilot-labs",
+                // エラー内容をエディタ上に表示
+                "usernamehw.errorlens",
+                // 行末のスペースを可視化
+                "shardulm94.trailing-spaces",
+                // インデントに色を付ける
+                "oderwat.indent-rainbow",
+                "christian-kohler.path-intellisense",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "shd101wyy.markdown-preview-enhanced",
+                "vscode-icons-team.vscode-icons",
+                "ms-azuretools.vscode-docker",
+                "redhat.vscode-yaml",
+                "github.vscode-github-actions"
+            ]
+        }
+    },
+    // コンテナの初回生成時に実行したい処理
+    "postCreateCommand": "/bin/bash ./.devcontainer/postCreateCommand.sh",
+    // コンテナの起動成功時に実行したい処理
+    "postStartCommand": "/bin/bash ./.devcontainer/postStartCommand.sh",
+    // コンテナ内のどのユーザとして接続するか
+    "remoteUser": "vscode"
+}
